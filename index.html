@@ -191,6 +191,26 @@
             animation: rotate 8s linear infinite;
         }
         
+        /* 成员卡片特殊效果 */
+        .member-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .member-card:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            transform: translateY(-5px);
+        }
+        .member-card .member-social a {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+        .member-card .member-social a:hover {
+            text-shadow: 0 0 8px currentColor;
+        }
+        
         @keyframes float {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-15px); }
@@ -217,7 +237,7 @@
     <!-- 扫描线 -->
     <div class="scan-line"></div>
     
-    <!-- 导航栏 -->
+    <!-- 导航栏 (保持原样) -->
     <nav class="nav-glow bg-dark/80 sticky top-0 z-10">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
@@ -247,9 +267,8 @@
         </div>
     </nav>
     
-    <!-- 英雄区域 -->
+    <!-- 英雄区域 (不变) -->
     <header class="py-16 md:py-24 relative overflow-hidden">
-        <!-- 星空背景装饰 -->
         <div class="absolute top-0 left-0 w-full h-full opacity-30">
             <div class="absolute top-10 left-10 w-64 h-64 bg-purple-900/20 rounded-full filter blur-3xl"></div>
             <div class="absolute bottom-10 right-10 w-80 h-80 bg-blue-900/20 rounded-full filter blur-3xl"></div>
@@ -296,14 +315,141 @@
         </div>
     </header>
     
-    <!-- 应用程序版块 -->
+    <!-- ================= 新增：工作室成员介绍 ================= -->
+    <section id="members" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="inline-block px-4 py-1 bg-indigo-900/50 text-accent text-sm rounded-full border border-accent/30 mb-4">Studio</div>
+                <h2 class="text-[clamp(1.8rem,3vw,2.8rem)] font-bold mb-3 text-white font-orbitron">Members</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">The stellar minds behind the veins. </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 成员 1：Coookie (创始人) -->
+                <div class="member-card p-6 rounded-xl flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-accent/50 p-1 bg-dark/80">
+                            <!-- 使用logo作为默认头像，也可以替换为成员专属图，这里复用logo以示友好 -->
+                            <img src="https://stellarvein.github.io/image/coookie.jpeg" alt="Coookie" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-accent rounded-full flex items-center justify-center text-dark font-bold border-2 border-dark">C</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Coookie</h3>
+                    <p class="text-accent text-sm mb-2">creator</p>
+                    <p class="text-gray-400 text-sm mb-4">Fond in couting stars, want his codes to shine. Cookie blog, File editor, Cookie cpp creator. </p>
+                    <div class="member-social flex space-x-4 text-gray-400">
+                        <a href="https://github.com/buttercoookie" target="_blank" class="hover:text-accent"><i class="fa fa-github"></i></a>
+                        <a href="https://buttercoookie.github.io/" target="_blank" class="hover:text-accent"><i class="fa fa-link"></i></a>
+                        <a href="#" class="hover:text-accent"><i class="fa fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 成员 2：Aurora (核心开发者) -->
+                <div class="member-card p-6 rounded-xl flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-purple-500/50 p-1 bg-dark/80">
+                            <img src="https://stellarvein.github.io/image/logo.png" alt="Aurora" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-dark font-bold border-2 border-dark">A</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Aurora</h3>
+                    <p class="text-purple-400 text-sm mb-2">OJ builder</p>
+                    <p class="text-gray-400 text-sm mb-4">Love coding. The creator of AuroraOJ and the administrator of CookieOJ. </p>
+                    <div class="member-social flex space-x-4 text-gray-400">
+                        <a href="#" class="hover:text-purple-400"><i class="fa fa-github"></i></a>
+                        <a href="#" class="hover:text-purple-400"><i class="fa fa-code"></i></a>
+                    </div>
+                </div>
+                
+                <!-- 成员 3：Nova (工具链开发者) -->
+                <div class="member-card p-6 rounded-xl flex flex-col items-center text-center">
+                    <div class="relative mb-4">
+                        <div class="w-28 h-28 rounded-full overflow-hidden border-2 border-green-500/50 p-1 bg-dark/80">
+                            <img src="https://stellarvein.github.io/image/logo.png" alt="Nova" class="w-full h-full object-cover rounded-full">
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-dark font-bold border-2 border-dark">?</div>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">???</h3>
+                    <p class="text-green-400 text-sm mb-2">???</p>
+                    <p class="text-gray-400 text-sm mb-4">Waiting for you to join. </p>
+                    <div class="member-social flex space-x-4 text-gray-400">
+                        <a href="#" class="hover:text-green-400"><i class="fa fa-github"></i></a>
+                        <a href="#" class="hover:text-green-400"><i class="fa fa-cog"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ================= 调换位置：原 Helper 区现在放在 Projects 之后 ================= -->
+    <!-- 项目展示区域 (原 Projects 保持不变，现在置于成员介绍之后) -->
+    <section id="projects" class="py-16 bg-dark/50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="inline-block px-4 py-1 bg-indigo-900/50 text-accent text-sm rounded-full border border-accent/30 mb-4">Projects</div>
+                <h2 class="text-[clamp(1.8rem,3vw,2.8rem)] font-bold mb-3 text-white font-orbitron">Project Sort</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Studio's all repositories</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="tech-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-primary/30 flex items-center justify-center text-primary mr-3 border border-primary/50">
+                            <i class="fa fa-file-text"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">File Editor</h3>
+                        <span class="ml-3 px-2 py-1 bg-accent/20 text-accent text-xs rounded">Files</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">A powerful interstellar file editor tool, supporting multi-format code editing and preview. </p>
+                    <a href="https://github.com/stellarvein/FileEditor" class="inline-flex items-center text-accent hover:text-accent/80 transition-colors">
+                        <i class="fa fa-external-link mr-2"></i>
+                        <span>visit</span>
+                    </a>
+                </div>
+                
+                <div class="tech-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/30 flex items-center justify-center text-purple-500 mr-3 border border-purple-500/50">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Cookie Cpp</h3>
+                        <span class="ml-3 px-2 py-1 bg-green-500/20 text-green-500 text-xs rounded">C++</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">A powerful interstellar C++ tool library, containing various algorithm implementations and utility tools.</p>
+                    <a href="https://github.com/CookieOJ/CookieCpp" class="inline-flex items-center text-accent hover:text-accent/80 transition-colors">
+                        <i class="fa fa-external-link mr-2"></i>
+                        <span>visit</span>
+                    </a>
+                </div>
+
+                <div class="tech-card p-6 rounded-xl">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/30 flex items-center justify-center text-purple-500 mr-3 border border-purple-500/50">
+                            <i class="fa fa-cogs"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">CookieOJ</h3>
+                        <span class="ml-3 px-2 py-1 bg-green-500/20 text-green-500 text-xs rounded">OJ</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Official online judge. </p>
+                    <a href="https://CookieOJ.github.io/" class="inline-flex items-center text-accent hover:text-accent/80 transition-colors">
+                        <i class="fa fa-external-link mr-2"></i>
+                        <span>visit</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 应用程序版块 (原 Helper 区，现位于 Projects 之后) -->
     <section id="apps" class="py-16 relative">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <div class="inline-block px-4 py-1 bg-indigo-900/50 text-accent text-sm rounded-full border border-accent/30 mb-4">Applications</div>
-                <h2 class="text-[clamp(1.8rem,3vw,2.8rem)] font-bold mb-3 text-white font-orbitron">App Center</h2>
+                <div class="inline-block px-4 py-1 bg-indigo-900/50 text-accent text-sm rounded-full border border-accent/30 mb-4">Codespace</div>
+                <h2 class="text-[clamp(1.8rem,3vw,2.8rem)] font-bold mb-3 text-white font-orbitron">Studio Light App</h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
-                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Every apps are reflections of our team's creativity and innovation. </p>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">The stellarvein's team websites to help you code and learn better. </p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -313,9 +459,9 @@
                         <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary mr-3 border border-primary/30">
                             <i class="fa fa-code text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Code</h3>
+                        <h3 class="text-xl font-bold text-white">OJs</h3>
                     </div>
-                    <p class="text-gray-400 mb-4">code, algorithm and C++</p>
+                    <p class="text-gray-400 mb-4">C++ Online Judge</p>
                     <ul class="space-y-3">
                         <li>
                             <a href="https://CookieOJ.github.io/" class="flex items-center hover:text-accent transition-colors group">
@@ -340,15 +486,15 @@
                         <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-500 mr-3 border border-yellow-500/30">
                             <i class="fa fa-book text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Knowledge</h3>
+                        <h3 class="text-xl font-bold text-white">Tech Blogs</h3>
                     </div>
-                    <p class="text-gray-400 mb-4">knowledge and experiences blog</p>
+                    <p class="text-gray-400 mb-4">Recording tech knowledge & life experience</p>
                     <ul class="space-y-3">
                         <li>
-                            <a href="https://www.luogu.com.cn/user/1008766" class="flex items-center hover:text-accent transition-colors group">
+                            <a href="https://coookie.dpdns.org" class="flex items-center hover:text-accent transition-colors group">
                                 <div class="w-2 h-2 bg-accent rounded-full mr-3 group-hover:animate-pulse"></div>
                                 <i class="fa fa-external-link mr-2 text-sm"></i>
-                                <span>Luogu</span>
+                                <span>Coookie's Blog</span>
                             </a>
                         </li>
                         <li>
@@ -374,9 +520,9 @@
                         <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent mr-3 border border-accent/30">
                             <i class="fa fa-wrench text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Tools</h3>
+                        <h3 class="text-xl font-bold text-white">Quick Tools</h3>
                     </div>
-                    <p class="text-gray-400 mb-4">useful life tools</p>
+                    <p class="text-gray-400 mb-4">Convenient tools to read codes</p>
                     <ul class="space-y-3">
                         <li>
                             <a href="https://stellarvein.github.io/browser" class="flex items-center hover:text-accent transition-colors group">
@@ -401,9 +547,9 @@
                         <div class="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-500 mr-3 border border-purple-500/30">
                             <i class="fa fa-calculator text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Work</h3>
+                        <h3 class="text-xl font-bold text-white">Efficiency</h3>
                     </div>
-                    <p class="text-gray-400 mb-4">just for efficiency</p>
+                    <p class="text-gray-400 mb-4">Helping plan everything better</p>
                     <ul class="space-y-3">
                         <li>
                             <a href="https://stellarvein.github.io/workspace/" class="flex items-center hover:text-accent transition-colors group">
@@ -421,15 +567,15 @@
                         <div class="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 mr-3 border border-red-500/30">
                             <i class="fa fa-gamepad text-lg"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Life</h3>
+                        <h3 class="text-xl font-bold text-white">Fast Coding</h3>
                     </div>
-                    <p class="text-gray-400 mb-4">more than lines of code</p>
+                    <p class="text-gray-400 mb-4">Templates helping to code better</p>
                     <ul class="space-y-3">
                         <li>
-                            <a href="https://stellarvein.github.io/blog/" class="flex items-center hover:text-accent transition-colors group">
+                            <a href="https://stellarvein.github.io/template/" class="flex items-center hover:text-accent transition-colors group">
                                 <div class="w-2 h-2 bg-accent rounded-full mr-3 group-hover:animate-pulse"></div>
                                 <i class="fa fa-external-link mr-2 text-sm"></i>
-                                <span>Blog</span>
+                                <span>Code templates</span>
                             </a>
                         </li>
                     </ul>
@@ -443,71 +589,27 @@
                         </div>
                         <h3 class="text-xl font-bold text-white">Others</h3>
                     </div>
-                    <p class="text-gray-400 mb-4">more and more, no ending</p>
+                    <p class="text-gray-400 mb-4">More and more, no ending</p>
                     <ul class="space-y-3">
                         <li class="text-gray-500">Building...</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </section>
-    
-    <!-- 项目展示区域 -->
-    <section id="projects" class="py-16 bg-dark/50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <div class="inline-block px-4 py-1 bg-indigo-900/50 text-accent text-sm rounded-full border border-accent/30 mb-4">Projects</div>
-                <h2 class="text-[clamp(1.8rem,3vw,2.8rem)] font-bold mb-3 text-white font-orbitron">Project Sort</h2>
-                <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-4"></div>
-                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">Studio's all respositories</p>
-            </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="tech-card p-6 rounded-xl">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-primary/30 flex items-center justify-center text-primary mr-3 border border-primary/50">
-                            <i class="fa fa-file-text"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">File Editor</h3>
-                        <span class="ml-3 px-2 py-1 bg-accent/20 text-accent text-xs rounded">Files</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">A powerful interstellar file editor tool, supporting multi-format code editing and preview. </p>
-                    <a href="https://github.com/stellarvein/FileEditor" class="inline-flex items-center text-accent hover:text-accent/80 transition-colors">
-                        <i class="fa fa-external-link mr-2"></i>
-                        <span>visit</span>
-                    </a>
+        <!-- 未来项目预告 -->
+        <div class="mt-12 tech-card p-6 rounded-xl border-dashed border-2 border-accent/30">
+            <div class="text-center">
+                <div class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center text-accent text-2xl mx-auto mb-4">
+                    <i class="fa fa-rocket"></i>
                 </div>
-                
-                <div class="tech-card p-6 rounded-xl">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-lg bg-purple-500/30 flex items-center justify-center text-purple-500 mr-3 border border-purple-500/50">
-                            <i class="fa fa-cogs"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Cookie Cpp</h3>
-                        <span class="ml-3 px-2 py-1 bg-green-500/20 text-green-500 text-xs rounded">Cookie Cpp</span>
-                    </div>
-                    <p class="text-gray-400 mb-4">A powerful interstellar C++ tool library, containing various algorithm implementations and utility tools.</p>
-                    <a href="https://github.com/CookieOJ/CookieCpp" class="inline-flex items-center text-accent hover:text-accent/80 transition-colors">
-                        <i class="fa fa-external-link mr-2"></i>
-                        <span>visit</span>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- 未来项目预告 -->
-            <div class="mt-12 tech-card p-6 rounded-xl border-dashed border-2 border-accent/30">
-                <div class="text-center">
-                    <div class="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center text-accent text-2xl mx-auto mb-4">
-                        <i class="fa fa-rocket"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">More Planets</h3>
-                    <p class="text-gray-400">They are preparing their best star-twinkle to see you...</p>
-                </div>
+                <h3 class="text-xl font-bold text-white mb-2">More Planets</h3>
+                <p class="text-gray-400">They are preparing their best star-twinkle to see you...</p>
             </div>
         </div>
     </section>
     
-    <!-- 页脚 -->
+    <!-- 页脚 (不变) -->
     <footer class="bg-dark py-8 border-t border-gray-800">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
@@ -537,7 +639,7 @@
         </div>
     </footer>
 
-    <!-- 星空生成脚本 -->
+    <!-- 星空生成脚本 (保持不变) -->
     <script>
         // 生成星空背景
         function createStars() {
@@ -548,16 +650,13 @@
                 const star = document.createElement('div');
                 star.classList.add('star');
                 
-                // 随机大小
                 const size = Math.random() * 3 + 1;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 
-                // 随机位置
                 star.style.left = `${Math.random() * 100}%`;
                 star.style.top = `${Math.random() * 100}%`;
                 
-                // 随机闪烁动画
                 const duration = Math.random() * 3 + 2;
                 star.style.animation = `star-twinkle ${duration}s infinite`;
                 
@@ -565,7 +664,6 @@
             }
         }
         
-        // 移动端菜单切换
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         
@@ -578,7 +676,6 @@
             }
         });
         
-        // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -596,10 +693,8 @@
             });
         });
         
-        // 初始化星空
         document.addEventListener('DOMContentLoaded', createStars);
         
-        // 添加科技感光标效果
         document.addEventListener('DOMContentLoaded', () => {
             const techCards = document.querySelectorAll('.tech-card');
             techCards.forEach(card => {
